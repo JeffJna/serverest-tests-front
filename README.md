@@ -1,15 +1,47 @@
 # Serverest Automated Tests
 
-Este repositório contém testes automatizados para a aplicação Serverest utilizando o Cypress.
+Este repositório contém a suíte de testes automatizados para a aplicação Serverest, utilizando Cypress com suporte ao Cucumber (BDD).
 
-## Funcionalidades
+---
 
-- Testes E2E do Frontend
-- Suporte a comandos customizados
-- Fixtures para dados de teste
-- Padrão Page Object
+## Funcionalidades Testadas
 
-## Instalação e Execução
+- Testes E2E do frontend
+- Fluxos completos de cadastro de usuário e login
+- Validações de erro e navegação
+
+---
+
+## Estrutura do Projeto
+
+```
+serverest-tests/
+├── cypress/
+│   ├── e2e/
+│   │   └── features/        # Cenários de teste em Gherkin
+│   ├── fixtures/            # Dados mockados
+│   ├── pageObjects/         # Page Object Models
+│   └── support/             # Comandos customizados e configurações
+├── cypress.config.js        # Configurações do Cypress
+├── package.json             # Dependências e scripts
+```
+
+---
+
+## Casos de Teste
+
+### Cadastro de Usuário
+- Cadastro com sucesso (com e sem marcar administrador)
+- Validação de erro ao tentar cadastrar com e-mail já existente
+
+### Login de Usuário
+- Login bem-sucedido
+- Mensagem de erro com senha inválida
+- Navegação para a tela de cadastro
+
+---
+
+## Como Executar
 
 1. Instale as dependências:
    ```bash
@@ -17,38 +49,37 @@ Este repositório contém testes automatizados para a aplicação Serverest util
    ```
 
 2. Execute os testes:
-   ```bash
-   # Rodar todos os testes no modo headless
-   npm run cypress:run
 
-   # Abrir a interface gráfica do Cypress
-   npm run cypress:open
-   ```
+   - **Modo headless:**
+     ```bash
+     npm run cypress:run
+     ```
+   - **Modo interativo com interface gráfica:**
+     ```bash
+     npm run cypress:open
+     ```
 
-## Suites de Testes
+---
 
-### Frontend
+## Boas Práticas Aplicadas
 
-- **Login**
-  - Login bem-sucedido com credenciais válidas
-  - Tratamento de erro com credenciais inválidas
-- **Produtos**
-  - Adicionar produto ao carrinho
-  - Filtrar produtos por categoria
+- Padrão Page Object Model (POM) para separação das responsabilidades
+- Estrutura BDD com Gherkin + @badeball/cypress-cucumber-preprocessor
+- Dados externos em fixtures
+- Comandos customizados reutilizáveis
+- Testes com nomes descritivos e assertivos
+- Isolamento entre testes para garantir independência
 
-### API
+---
 
-- **Usuários**
-  - Criar novo usuário
-  - Buscar usuário por ID
-  - Atualizar informações do usuário
+## Requisitos
 
-## Boas Práticas
+- Node.js 16+
+- npm 8+
+- Cypress 13+
 
-- Implementação do padrão Page Object
-- Comandos customizados para ações comuns
-- Uso de fixtures para dados de teste
-- Nomes de testes claros e descritivos
-- Asserções robustas
-- Isolamento entre testes
-- Código limpo e de fácil manutenção
+---
+
+## Licença
+
+Este projeto é de uso educacional/demonstração, sem vínculo com ambientes de produção reais.
