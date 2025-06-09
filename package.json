@@ -1,0 +1,30 @@
+{
+  "name": "serverest-tests",
+  "version": "1.0.0",
+  "description": "Automated tests for Serverest application",
+  "main": "index.js",
+  "scripts": {
+    "test": "cypress run",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run"
+  },
+  "keywords": [
+    "cypress",
+    "testing",
+    "e2e",
+    "api"
+  ],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^22.0.1",
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.5",
+    "@cypress/xpath": "^2.0.3",
+    "cypress": "^13.17.0",
+    "uuid": "^11.1.0"
+  },
+  "dependencies": {
+    "install": "^0.13.0"
+  }
+}
